@@ -7,6 +7,7 @@ WORKDIR /usr/src/app
 HEALTHCHECK --interval=5s \
             --timeout=5s \
             CMD curl -f http://127.0.0.1:8000
+ENV myEnvVar= "this is a sample"
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
