@@ -18,7 +18,7 @@ agent {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+sh 'myEnvVar =$myEnvVar'
       def  app = docker.build("nexus-docker.minikube/hellonode")
     }
 
