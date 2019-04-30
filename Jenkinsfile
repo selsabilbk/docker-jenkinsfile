@@ -1,5 +1,9 @@
-node {
-    def app
+pipeline {
+agent {
+ dockerfile true 
+}
+    stages{
+    
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -15,7 +19,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("nexus-docker.minikube/hellonode")
+      def  app = docker.build("nexus-docker.minikube/hellonode")
     }
 
     stage('Test image') {
@@ -37,4 +41,4 @@ node {
             app.push("latest")
         }
     }
-}
+}}
