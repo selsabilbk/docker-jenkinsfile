@@ -1,8 +1,5 @@
-pipeline {
-agent {
- dockerfile true 
-}
-    stages{
+node {
+ def app {
     
 
     stage('Clone repository') {
@@ -41,4 +38,4 @@ sh 'myEnvVar =$myEnvVar'
             app.push("latest")
         }
     }
-}}
+}
