@@ -1,5 +1,5 @@
 pipeline {
-
+def app
      agent {
         dockerfile {
             filename 'Dockerfile.jenkinsAgent'
@@ -24,7 +24,7 @@ pipeline {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-      def  app = docker.build("nexus-docker.minikube/hellonode")
+        app = docker.build("nexus-docker.minikube/hellonode")
     }
 
    
