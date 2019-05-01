@@ -7,8 +7,9 @@ pipeline {
             args '-v /var/run/docker.sock:/var/run/docker.sock -u jenkins:docker'
         }
 }
-  def app 
-
+   
+def app
+     
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
