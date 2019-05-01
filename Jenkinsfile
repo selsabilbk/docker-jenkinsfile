@@ -1,5 +1,5 @@
 pipeline {
- def app 
+
      agent {
         dockerfile {
             filename 'Dockerfile.jenkinsAgent'
@@ -7,6 +7,7 @@ pipeline {
             args '-v /var/run/docker.sock:/var/run/docker.sock -u jenkins:docker'
         }
 }
+  def app 
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
