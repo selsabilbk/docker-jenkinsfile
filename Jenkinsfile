@@ -8,13 +8,10 @@ pipeline {
 
         checkout scm
     }}
-        stage('Acitivate socket')
-        {
-              steps {
-    sh 'chmod 777 /var/run/docker.sock'
-}}
+       
         stage('Build image') {
             steps {
+                 sh 'chmod 777 /var/run/docker.sock'
                 echo 'Starting to build docker image'
 
                 script {
