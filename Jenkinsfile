@@ -29,7 +29,8 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('http://nexus.minikube/', 'admin') {
           /*   app.push("${shortCommit}")*/
-            app.push("latest")
+               app.push("${env.BUILD_NUMBER}")
+    app.push("latest")
         }
     }
 }
