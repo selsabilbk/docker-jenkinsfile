@@ -28,7 +28,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('http://nexus.minikube/', 'admin') {
-            app.push("${shortCommit}")
+          /*   app.push("${shortCommit}")*/
             app.push("latest")
         }
     }
