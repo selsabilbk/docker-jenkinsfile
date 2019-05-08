@@ -28,13 +28,15 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
  // withCredentials([usernamePassword( credentialsId: 'admin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-
-docker.withRegistry('', 'admin') {
-sh "docker login -u admin -p admin123 nexus-docker.minikube"
+ docker.withServer(host) {
+        
+docker.withRegistry(nexus-docker.minikube, 'admin') {
+//sh "docker login -u admin -p admin123 nexus-docker.minikube"
     
 app.push("${env.BUILD_NUMBER}")
 app.push("latest")
     }
+}
 }
 }
    // }
