@@ -34,7 +34,7 @@ node {
 sh "docker login -u admin -p admin123 nexus-docker.minikube"
     
 app.push("${env.BUILD_NUMBER}")
-app.push("latest")
+//app.push("latest")
    // }
 //}
 }
