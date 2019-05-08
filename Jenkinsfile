@@ -13,7 +13,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("nexus-docker.minikube/" + ":${BUILD_NUMBER}")
+        app = docker.build("nexus-docker.minikube/" + "${BUILD_NUMBER}")
     }
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
