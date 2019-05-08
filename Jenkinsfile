@@ -30,7 +30,6 @@ node {
   withCredentials([usernamePassword( credentialsId: 'admin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
 docker.withRegistry('', 'admin') {
-  sh "systemctl restart docker "
 sh "docker login -u ${USERNAME} -p ${PASSWORD} nexus-docker.minikube"
 myImage.push("${env.BUILD_NUMBER}")
 myImage.push("latest")
