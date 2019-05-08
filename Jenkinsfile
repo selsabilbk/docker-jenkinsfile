@@ -29,7 +29,7 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
   withCredentials([usernamePassword( credentialsId: 'admin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
-docker.withRegistry('', 'docker-hub-credentials') {
+docker.withRegistry('', 'admin') {
 sh "docker login -u ${USERNAME} -p ${PASSWORD} nexus-docker.minikube"
 myImage.push("${env.BUILD_NUMBER}")
 myImage.push("latest")
