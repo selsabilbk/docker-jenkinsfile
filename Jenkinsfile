@@ -30,13 +30,13 @@ node {
  // withCredentials([usernamePassword( credentialsId: 'admin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 // docker.withServer(host) {
         
-docker.withRegistry(nexus-docker.minikube, 'admin') {
-//sh "docker login -u admin -p admin123 nexus-docker.minikube"
+//docker.withRegistry(nexus-docker.minikube, 'admin') {
+sh "docker login -u admin -p admin123 nexus-docker.minikube"
     
 app.push("${env.BUILD_NUMBER}")
 app.push("latest")
    // }
-}
+//}
 }
 }
    // }
