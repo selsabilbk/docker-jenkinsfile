@@ -27,12 +27,13 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-  withCredentials([usernamePassword( credentialsId: 'admin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+ // withCredentials([usernamePassword( credentialsId: 'admin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
 docker.withRegistry('', 'admin') {
-sh "docker login -u ${USERNAME} -p ${PASSWORD} nexus-docker.minikube"
-myImage.push("${env.BUILD_NUMBER}")
-myImage.push("latest")
+sh "docker login -u admin -p admin123 nexus-docker.minikube"
+    
+app.push("${env.BUILD_NUMBER}")
+app.push("latest")
     }
 }
 }
